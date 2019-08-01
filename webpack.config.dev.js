@@ -7,12 +7,12 @@ process.env.NODE_ENV = "development"; // required for babel
 module.exports = {
   mode: "development",
   target: "web",
-  devTool: "cheap-module-source-map",
+  devtool: "cheap-module-source-map",
   entry: "./src/index", //entry point is index.js
   output: {
     path: path.resolve(__dirname, "build"),
     publicPath: "/",
-    fileName: "bundle.js"
+    filename: "bundle.js"
   },
   devServer: {
     stats: "minimal",
@@ -25,7 +25,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "src/index.html",
-      favicon: "src/favicom.ico"
+      favicon: "src/favicon.ico"
     })
   ],
   module: {
