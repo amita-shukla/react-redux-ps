@@ -53,3 +53,35 @@ presentation components just rely on props, no dependence on rest of the app, su
 | often stateful             | often no state                     |
 
 ---
+
+## Redux
+
+### Why need redux?
+
+- Prop Drilling. lifting props all the way to parent component just to pass it down 2 separate components that need it. This results in many props existing in components just to pass data down.
+
+- another way to solve this problem is to use React's context. Expose global data in functions from a given react component. To consume the data, you need to import the context into your component.
+
+- The other option is Redux.
+
+### Concept
+
+- With redux there is a centralized store. Like a local, client side database. This is a single spot where app's global data is stored.
+- Any component can connect to redux store.
+- But redux store can't be connected to directly.
+- Instead, a component has to dispatch an action. On dispatch the redux store is updated to reflect new data.
+- Any connected components receive this new data from redux store and rerender.
+
+### Core principles
+
+- application state is palced in a single, immutable store
+- only way to change a state is emit an action
+- state changes are handled by pure functions
+
+### Redux flow
+![](redux.png)
+
+- An Action describes a user's intent. It's an object with a type property and some data. 
+- Actions are ultimately handled by reducers.
+- A Reducer is a function that returns a new state based on the action passed. It receives the current state and returns the new state based on action.
+- The store is updated whenever the reducer returns a new state.
