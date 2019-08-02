@@ -19,7 +19,7 @@ module.exports = {
     overlay: true,
     historyApiFallback: true,
     disableHostCheck: true,
-    headers: { "Access-Control-Allow-Origin": "+" },
+    headers: { "Access-Control-Allow-Origin": "*" },
     https: false // the last 3 options are due to a bug for latest version of chrome
   },
   plugins: [
