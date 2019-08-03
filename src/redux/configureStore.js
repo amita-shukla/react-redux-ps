@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import rootReducer from "./reducers";
-import { reduxImmutableStateInvariant } from "redux-immutable-state-invariant";
+import reduxImmutableStateInvariant from "redux-immutable-state-invariant";
 
 export default function configureStore(initialState) {
   // add support for dev tools
