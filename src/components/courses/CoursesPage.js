@@ -22,8 +22,7 @@ class CoursesPage extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault(); // keep the form from posting back (means getting back to server) before the alert is caused
-    // dispatch property is automatically injected to props as we omit mapDispatchToProps
-    this.props.dispatch(courseActions.createCourse(this.state.course));
+    this.props.createCourse(this.state.course);
   };
 
   render() {
@@ -49,7 +48,7 @@ class CoursesPage extends React.Component {
 
 CoursesPage.propTypes = {
   courses: PropTypes.array.isRequired,
-  dispatch: PropTypes.func.isRequired
+  createCourse: PropTypes.func.isRequired
 };
 
 // which part of state exposed to component
@@ -57,7 +56,13 @@ function mapStateToProps(state) {
   return { courses: state.courses };
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    createCourse: course => dispatch(courseActions.createCourse(course))
+  };
+}
+
 export default connect(
-  mapStateToProps
-  // mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(CoursesPage);
