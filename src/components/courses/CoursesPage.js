@@ -1,4 +1,8 @@
 import React from "react";
+import { connect } from "redux";
+// import * as courseActions from  "./redux/actions/courseActions";
+import * as courseActions from "../../redux/actions/courseActions";
+import PropTypes from "prop-types";
 
 //creating this as a class component just for practice.
 class CoursesPage extends React.Component {
@@ -18,6 +22,8 @@ class CoursesPage extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault(); // keep the form from posting back (means getting back to server) before the alert is caused
+    // dispatch property is automatically injected to props as we omit mapDispatchToProps
+    this.props.dispatch(courseActions.createCourse(this.state.course));
     alert(this.state.course.title);
   };
 
@@ -39,4 +45,16 @@ class CoursesPage extends React.Component {
   }
 }
 
-export default CoursesPage;
+CoursesPage.propTypes = {
+  dispatch: PropTypes.func.isRequired
+};
+
+// which part of state exposed to component
+function mapStateToProps(state) {
+  return { courses: state.courses };
+}
+
+export default connect(
+  mapStateToProps
+  // mapDispatchToProps
+)(CoursesPage);
