@@ -2,18 +2,14 @@ import React from "react";
 
 //creating this as a class component just for practice.
 class CoursesPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      course: {
-        title: ""
-      }
-    };
+  state = {
+    course: {
+      title: ""
+    }
+  };
 
-    //else you get an error: "Cannot read property of undefined" when trying to type a course for add course
-    // this.handleChange = this.handleChange.bind(this);
-  }
-
+  // arrow functions inhreit the binding context of enclosing scope
+  //todo: I am not sure what this all means
   handleChange = event => {
     const course = { ...this.state.course, title: event.target.value };
     // this.setState({ course: course });
