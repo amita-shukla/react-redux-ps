@@ -16,9 +16,15 @@ class CoursesPage extends React.Component {
     this.setState({ course }); // object shorthand syntax
   };
 
+  handleSubmit = event => {
+    event.preventDefault(); // keep the form from posting back (means getting back to server) before the alert is caused
+    alert(this.state.course.title);
+  };
   render() {
     return (
-      <form>
+      // we use onSubmit attached to form instead of onClick on button.
+      // this is because we want the form to be submitted on hitting enter key
+      <form onSubmit={this.handleSubmit}>
         <h2>Courses</h2>
         <h2>Add Course</h2>
         <input
