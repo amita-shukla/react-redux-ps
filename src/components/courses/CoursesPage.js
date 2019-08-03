@@ -20,6 +20,7 @@ class CoursesPage extends React.Component {
     event.preventDefault(); // keep the form from posting back (means getting back to server) before the alert is caused
     alert(this.state.course.title);
   };
+
   render() {
     return (
       // we use onSubmit attached to form instead of onClick on button.
