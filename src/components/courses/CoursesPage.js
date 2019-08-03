@@ -11,14 +11,14 @@ class CoursesPage extends React.Component {
     };
 
     //else you get an error: "Cannot read property of undefined" when trying to type a course for add course
-    this.handleChange = this.handleChange.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = event => {
     const course = { ...this.state.course, title: event.target.value };
     // this.setState({ course: course });
     this.setState({ course }); // object shorthand syntax
-  }
+  };
 
   render() {
     return (
